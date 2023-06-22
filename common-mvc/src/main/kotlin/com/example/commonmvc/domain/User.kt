@@ -1,6 +1,7 @@
 package com.example.commonmvc.domain
 
 import jakarta.persistence.*
+import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
 
 @Entity
@@ -8,7 +9,9 @@ import java.time.LocalDateTime
 class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    val id: Int = 0,
     val name: String,
-    val createdAt: LocalDateTime
+    @Column(name = "created_at")
+    @CreationTimestamp
+    val createdAt: LocalDateTime = LocalDateTime.now()
 )

@@ -12,4 +12,12 @@ class SimpleService(
     fun getUsers(): List<User> {
         return simpleRepository.findAll()
     }
+
+    fun prepareUsers() {
+        Array(1000) { it }.forEach {
+            simpleRepository.save(
+                User(name = "user$it")
+            )
+        }
+    }
 }

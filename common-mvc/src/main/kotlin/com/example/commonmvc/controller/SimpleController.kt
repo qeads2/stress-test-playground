@@ -20,4 +20,9 @@ class SimpleController(
     fun prepareUsers() {
         simpleService.prepareUsers()
     }
+
+    @PostMapping("/test")
+    fun springEventTest() {
+        simpleService.springEventTest()
+    }
 }
